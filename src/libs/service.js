@@ -76,6 +76,9 @@ class Service {
             let attrs = {};
             attrs[config.attrs.fields] = [];
             attrs[config.attrs.date] = dateFormat(new Date(), "yyyy-MM-dd hh:mm");
+            this.dbUtil.priFieldType(tableName).then(data => {
+                attrs[config.attrs.priType] = data
+            })
             this.dbUtil.tableInfo(tableName).then(data => {
                 attrs[config.attrs.entityName] = data.name;
                 attrs[config.attrs.tableName] = data.table_name;

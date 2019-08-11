@@ -98,6 +98,24 @@ class DataBaseUtil {
         });
     }
 
+    priFieldType(tableName) {
+        return new Promise((resolve, reject) => {
+            let sql = mysql.format("select column_name as column_name, data_type as data_type,column_key as column_key , column_comment as column_comment from information_schema.columns where table_schema = ? and table_name = ? and column_key = ?", [this.props.dbName, tableName, 'PRI']);
+            this.conn.query(sql, (error, result, fields) => {
+                if (error) {
+                    $this.$error(error);
+                    reject("查询失败！");
+                } else {
+                    let data = [];
+                    result.forEach(item => {
+                        data.push(this.javaDataType[item.data_type]);
+                    });
+                    resolve(data[0]);
+                }
+            });
+        });
+    }
+
     /**
      * 处理表名 驼峰命名规则
      * @param result 

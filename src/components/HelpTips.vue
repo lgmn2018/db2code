@@ -1,5 +1,6 @@
 <template>
-  <Tooltip placement="right-start" theme="light">
+  <Tooltip placement="right-start"
+           theme="light">
     <a href="javascript:void(0);">可用变量</a>
     <div slot="content">
       <ul class="helpTips">
@@ -11,6 +12,7 @@
         <li>tableName - 表名</li>
         <li>remark - 表备注信息</li>
         <li>date - 当前日期(yyyy-MM-dd)</li>
+        <li>priType - 表主键数据类型</li>
         <li>
           <span>fields - 表字段</span>
           <div class="sub">
@@ -27,24 +29,24 @@
 </template>
 <script>
 export default {
-    name: "helpTips"
+  name: "helpTips"
 };
 </script>
 <style scoped>
-.helpTips{
+.helpTips {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.helpTips li{
+.helpTips li {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.helpTips .sub{
-  margin-left:8px;
+.helpTips .sub {
+  margin-left: 8px;
 }
-.helpTips .sub span{
+.helpTips .sub span {
   display: block;
   padding: 0 0;
 }

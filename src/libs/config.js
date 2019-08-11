@@ -28,7 +28,8 @@ let config = {
         tableName: "tableName",
         remark: "remark",
         fields: "fields",
-        date: "date"
+        date: "date",
+        priType: "priType"
     }
 };
 
