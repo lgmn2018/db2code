@@ -126,7 +126,8 @@ class Service {
         attrs[config.attrs.imports] = [];
         attrs[config.attrs.packageName] = props.package;
         if (item.package != "") {
-            attrs[config.attrs.packageName] = attrs[config.attrs.packageName] + '.' + item.package;
+            let itemPackage = ejs.render(item.package, attrs)
+            attrs[config.attrs.packageName] = attrs[config.attrs.packageName] + '.' + itemPackage;
         }
         attrs[config.attrs.basePackage] = props.package;
         attrs[config.attrs.swagger] = props.swagger;
